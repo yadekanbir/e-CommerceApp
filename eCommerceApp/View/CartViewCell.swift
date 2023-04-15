@@ -1,0 +1,49 @@
+//
+//  CartViewCell.swift
+//  eCommerceApp
+//
+//  Created by Yade KANBİR on 12.04.2023.
+//
+
+import UIKit
+import Kingfisher
+
+protocol CartViewCellDelegate : class {
+    func addToCartClicked(product: Product)
+}
+
+class CartViewCell: UITableViewCell {
+   
+    @IBOutlet weak var productName: UILabel!
+    @IBOutlet weak var prodcutPrice: UILabel!
+    @IBOutlet weak var productImage: UIImageView!
+    @IBOutlet weak var stepper: UIStepper!
+    @IBOutlet weak var quantityLabel: UILabel!
+    
+    var delegate: CartViewCellDelegate?
+    var product: Product?
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+    
+    func configure (product: Product, delegate: CartViewCellDelegate){
+        self.product = product
+        self.delegate = delegate
+        productName.text = product.name
+        if let url = URL(string: product.imageUrl){
+            let placeholder = UIImage(named: "product")
+            productImage.kf.setImage(with: url, placeholder: placeholder)
+        }
+        prodcutPrice.text = product.price
+        stepper.value = Double(product.stock)
+        quantityLabel.text = Int(stepper.value).description
+    }
+    
+    @IBAction func stepperValueChanged(_ sender: Any) {
+        self.product?.stock = Int(stepper.value)
+        guard let product = self.product else {return}
+        let stepper = sender as! UIStepper
+        quantityLabel.text = Int(stepper.value).description
+    }
+}

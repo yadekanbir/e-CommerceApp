@@ -8,16 +8,19 @@
 import Foundation
 import FirebaseFirestore
 import FirebaseAuth
+import UIKit
 
 let UserService = _UserService()
 
 final class _UserService {
     var user = User()
     var favorites = [Product]()
+    var cartItems = [Product]()
     var auth = Auth.auth()
     var db = Firestore.firestore()
     var userListener : ListenerRegistration? = nil
     var favListener : ListenerRegistration? = nil
+    var cartListener : ListenerRegistration? = nil
     
     func getCurrentUser() {
         guard let authUser = auth.currentUser else {return}
@@ -43,6 +46,19 @@ final class _UserService {
                 self.favorites.append(favorite)
             })
         })
+        
+        let cartRef = userRef.collection("cart")
+        cartListener = cartRef.addSnapshotListener({ snap, error in
+            if let error = error {
+                debugPrint(error.localizedDescription)
+                return
+            }
+            snap?.documents.forEach({ document in
+                let cart = Product.init(data: document.data())
+                self.cartItems.append(cart)
+                
+            })
+        })
     }
     
     func favoriteSelected(product: Product){
@@ -54,6 +70,18 @@ final class _UserService {
             favorites.append(product)
             let data = Product.modelToData(product: product)
             favsRef.document(product.id).setData(data)
+        }
+    }
+
+    func addToCartSelected(product : Product){
+        let cartItemsRef = Firestore.firestore().collection("users").document(user.id).collection("cart")
+        if cartItems.contains(product){
+            cartItems.removeAll{ $0 == product }
+            cartItemsRef.document(product.id).delete()
+        } else {
+            cartItems.append(product)
+            let data = Product.modelToData(product: product)
+            cartItemsRef.document(product.id).setData(data)
         }
     }
     

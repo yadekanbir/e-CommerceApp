@@ -14,4 +14,5 @@ struct AppImages {
 
 struct Identifiers {
     static let ProductCell = "ProductCell"
+    static let CartViewCell = "CartViewCell"
 }

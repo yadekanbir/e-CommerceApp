@@ -10,7 +10,7 @@ import FirebaseAuth
 import FirebaseFirestore
 
 class FavoritesViewController: UIViewController , UITableViewDelegate, UITableViewDataSource, ProductCellDelegate {
-   
+
     @IBOutlet weak var tableView: UITableView!
     
     var products = [Product]()
@@ -49,6 +49,12 @@ class FavoritesViewController: UIViewController , UITableViewDelegate, UITableVi
     
     func productFavorited(product: Product) {
         UserService.favoriteSelected(product: product)
+        guard let index = products.firstIndex(of: product) else {return}
+        tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+    }
+    
+    func addToCartClicked(product: Product) {
+        UserService.addToCartSelected(product: product)
         guard let index = products.firstIndex(of: product) else {return}
         tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
     }

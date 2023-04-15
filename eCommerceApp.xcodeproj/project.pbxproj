@@ -12,6 +12,8 @@
 		D70F5F7F29C5D487001760D5 /* Firebase+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70F5F7E29C5D487001760D5 /* Firebase+Utils.swift */; };
 		D736CC0E29D21D830050A507 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D736CC0D29D21D830050A507 /* UserService.swift */; };
 		D736CC1029D2382A0050A507 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D736CC0F29D2382A0050A507 /* FavoritesViewController.swift */; };
+		D7654CE129E6F0200098A5D5 /* CartViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7654CDF29E6F0200098A5D5 /* CartViewCell.swift */; };
+		D7654CE229E6F0200098A5D5 /* CartViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7654CE029E6F0200098A5D5 /* CartViewCell.xib */; };
 		D78AD32429CFA43500811151 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78AD32229CFA43500811151 /* ProductCell.swift */; };
 		D78AD32529CFA43500811151 /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D78AD32329CFA43500811151 /* ProductCell.xib */; };
 		D78AD32729CFB3BA00811151 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78AD32629CFB3BA00811151 /* User.swift */; };
@@ -68,6 +70,8 @@
 		D70F5F7E29C5D487001760D5 /* Firebase+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firebase+Utils.swift"; sourceTree = "<group>"; };
 		D736CC0D29D21D830050A507 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		D736CC0F29D2382A0050A507 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		D7654CDF29E6F0200098A5D5 /* CartViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewCell.swift; sourceTree = "<group>"; };
+		D7654CE029E6F0200098A5D5 /* CartViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartViewCell.xib; sourceTree = "<group>"; };
 		D78AD32229CFA43500811151 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		D78AD32329CFA43500811151 /* ProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
 		D78AD32629CFB3BA00811151 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -200,6 +204,7 @@
 			children = (
 				D7EFD78E29C8534C008EDB1C /* RoundedViews.swift */,
 				D78AD32229CFA43500811151 /* ProductCell.swift */,
+				D7654CDF29E6F0200098A5D5 /* CartViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -209,6 +214,7 @@
 			children = (
 				D7F1564329CE34CD00890A44 /* DetailViewController.xib */,
 				D78AD32329CFA43500811151 /* ProductCell.xib */,
+				D7654CE029E6F0200098A5D5 /* CartViewCell.xib */,
 			);
 			path = Xib;
 			sourceTree = "<group>";
@@ -242,8 +248,8 @@
 				D7DBFA0E29C38DCA00D254BA /* SignUpViewController.swift */,
 				D7DBFA1229C3911400D254BA /* CartViewController.swift */,
 				D7DBFA1029C390FA00D254BA /* ProfileViewController.swift */,
-				D7F1564229CE34CD00890A44 /* DetailViewController.swift */,
 				D736CC0F29D2382A0050A507 /* FavoritesViewController.swift */,
+				D7F1564229CE34CD00890A44 /* DetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -387,6 +393,7 @@
 				D7F1564529CE34CD00890A44 /* DetailViewController.xib in Resources */,
 				D7DBFA0D29C38BD800D254BA /* LaunchScreen.storyboard in Resources */,
 				D78AD32529CFA43500811151 /* ProductCell.xib in Resources */,
+				D7654CE229E6F0200098A5D5 /* CartViewCell.xib in Resources */,
 				D795E40229C3841600F3B234 /* Assets.xcassets in Resources */,
 				D795E40029C3841500F3B234 /* Main.storyboard in Resources */,
 			);
@@ -520,6 +527,7 @@
 				D795E3FD29C3841500F3B234 /* SignInViewController.swift in Sources */,
 				D795E3F929C3841500F3B234 /* AppDelegate.swift in Sources */,
 				D7D9A92D29C46C28009848F9 /* Product.swift in Sources */,
+				D7654CE129E6F0200098A5D5 /* CartViewCell.swift in Sources */,
 				D7EFD78F29C8534C008EDB1C /* RoundedViews.swift in Sources */,
 				D78AD32429CFA43500811151 /* ProductCell.swift in Sources */,
 				D7DBFA1129C390FA00D254BA /* ProfileViewController.swift in Sources */,

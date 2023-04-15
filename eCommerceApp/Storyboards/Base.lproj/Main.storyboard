@@ -159,14 +159,29 @@
                     <view key="view" contentMode="scaleToFill" id="JB9-yF-QEX">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="5sp-lh-RKW">
+                                <rect key="frame" x="0.0" y="59" width="393" height="660"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="SaZ-yk-ho0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5sp-lh-RKW" firstAttribute="top" secondItem="SaZ-yk-ho0" secondAttribute="top" id="86t-SZ-nS3"/>
+                            <constraint firstItem="5sp-lh-RKW" firstAttribute="leading" secondItem="SaZ-yk-ho0" secondAttribute="leading" id="SCX-nQ-zg8"/>
+                            <constraint firstItem="SaZ-yk-ho0" firstAttribute="bottom" secondItem="5sp-lh-RKW" secondAttribute="bottom" constant="50" id="ikN-lE-D6i"/>
+                            <constraint firstItem="SaZ-yk-ho0" firstAttribute="trailing" secondItem="5sp-lh-RKW" secondAttribute="trailing" id="xtG-vX-GW4"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Cart" image="cart" catalog="system" id="zS5-K8-N3O"/>
+                    <connections>
+                        <outlet property="tableView" destination="5sp-lh-RKW" id="pjt-I5-AsP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kfq-8U-As4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1063" y="339"/>
+            <point key="canvasLocation" x="1058.7786259541983" y="338.73239436619718"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="F0B-cd-ehx">

@@ -56,7 +56,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func productFavorited(product: Product) {
+        
         UserService.favoriteSelected(product: product)
+        guard let index = products.firstIndex(of: product) else {return}
+        tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+    }
+    
+    func addToCartClicked(product: Product){
+        UserService.addToCartSelected(product: product)
         guard let index = products.firstIndex(of: product) else {return}
         tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
     }
