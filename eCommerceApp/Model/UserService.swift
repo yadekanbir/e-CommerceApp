@@ -72,19 +72,22 @@ final class _UserService {
             favsRef.document(product.id).setData(data)
         }
     }
-
+    
     func addToCartSelected(product : Product){
         let cartItemsRef = Firestore.firestore().collection("users").document(user.id).collection("cart")
-        if cartItems.contains(product){
-            cartItems.removeAll{ $0 == product }
-            cartItemsRef.document(product.id).delete()
-        } else {
             cartItems.append(product)
             let data = Product.modelToData(product: product)
             cartItemsRef.document(product.id).setData(data)
         }
-    }
     
+    func removeFromCart(product: Product) {
+        let cartItemsRef = Firestore.firestore().collection("users").document(user.id).collection("cart")
+        if cartItems.contains(product){
+            cartItems.removeAll{ $0 == product }
+            cartItemsRef.document(product.id).delete()
+        }
+    }
+
     func checkIfItemIsAlreadyFavorite(with id : String) -> Bool {
         for item in favorites {
             if item.id == id {

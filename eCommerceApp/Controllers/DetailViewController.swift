@@ -21,7 +21,11 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         
         productTitle.text = product.name
-        productPrice.text = product.price
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        if let price = formatter.string(from: product.price as NSNumber) {
+            productPrice.text = price
+        }
         productDesc.text = product.description
         
         if let url = URL(string: product.imageUrl){

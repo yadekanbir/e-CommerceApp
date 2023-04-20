@@ -10,15 +10,17 @@ import FirebaseAuth
 import FirebaseFirestore
 
 class CartViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CartViewCellDelegate {
-    
       
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var totalLabel: UILabel!
+    @IBOutlet weak var orderButton: UIButton!
     
     var products = [Product]()
     var cartItems = [Product]()
     var db: Firestore!
     var listener: ListenerRegistration!
     var product : Product!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -28,6 +30,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: Identifiers.CartViewCell, bundle: nil), forCellReuseIdentifier: Identifiers.CartViewCell)
+        totalLabel.text = "Total: \(Payment.total.penniesToFormattedCurrency())"
         fetcDocument()
     }
     
@@ -55,6 +58,27 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
     }
     
+    func removeItemFromCart (product: Product){
+        UserService.removeFromCart( product: product)
+        guard let index = products.firstIndex(of: product) else {return}
+        tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+    }
+    
+    @IBAction func orderButtonClicked(_ sender: Any) {
+        makeAlert(titleInput: "You are about to order!", messageInput: "You can place an order or return to the order screen." )
+    }
+    
+    func makeAlert(titleInput:String, messageInput:String) {
+        let alert = UIAlertController(title: titleInput, message: messageInput, preferredStyle: UIAlertController.Style.alert)
+        let action1 = UIAlertAction(title: "Keep Shopping!", style: UIAlertAction.Style.default, handler: nil)
+        let action2 = UIAlertAction(title: "Buy Now!", style: UIAlertAction.Style.default) { (action:UIAlertAction) in
+            self.performSegue(withIdentifier: "toLastScreen", sender: nil)
+        }
+        alert.addAction(action1)
+        alert.addAction(action2)
+        self.present(alert, animated: true, completion: nil)
+        }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return products.count
     }
@@ -70,21 +94,5 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
-    }
-    
-    func removeToCartSelected(product : Product){
-        let cartItemsRef = Firestore.firestore().collection("users").document(UserService.user.id).collection("cart")
-        if cartItems.contains(product){
-            cartItems.removeAll{ $0 == product }
-            cartItemsRef.document(product.id).delete()
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            products.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            tableView.reloadData()
-        }
     }
 }

@@ -7,9 +7,11 @@
 
 import UIKit
 import Kingfisher
+import FirebaseFirestore
 
 protocol CartViewCellDelegate : class {
     func addToCartClicked(product: Product)
+    func removeItemFromCart (product: Product)
 }
 
 class CartViewCell: UITableViewCell {
@@ -19,9 +21,11 @@ class CartViewCell: UITableViewCell {
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var stepper: UIStepper!
     @IBOutlet weak var quantityLabel: UILabel!
+    @IBOutlet weak var removeItem: UIButton!
     
     var delegate: CartViewCellDelegate?
     var product: Product?
+    var cartItems = [Product]()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,12 +34,20 @@ class CartViewCell: UITableViewCell {
     func configure (product: Product, delegate: CartViewCellDelegate){
         self.product = product
         self.delegate = delegate
+        
         productName.text = product.name
+        
         if let url = URL(string: product.imageUrl){
             let placeholder = UIImage(named: "product")
             productImage.kf.setImage(with: url, placeholder: placeholder)
         }
-        prodcutPrice.text = product.price
+        
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        if let price = formatter.string(from: product.price as NSNumber) {
+            prodcutPrice.text = price
+        }
+        
         stepper.value = Double(product.stock)
         quantityLabel.text = Int(stepper.value).description
     }
@@ -45,5 +57,13 @@ class CartViewCell: UITableViewCell {
         guard let product = self.product else {return}
         let stepper = sender as! UIStepper
         quantityLabel.text = Int(stepper.value).description
+        if stepper.value == 0 {
+            UserService.removeFromCart(product: product)
+            stepper.isEnabled = false
+        }
+    }
+    
+    @IBAction func removeItemFromCart(_ sender: Any) {
+        delegate?.removeItemFromCart(product: product!)
     }
 }

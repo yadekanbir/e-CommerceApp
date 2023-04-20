@@ -14,6 +14,7 @@
 		D736CC1029D2382A0050A507 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D736CC0F29D2382A0050A507 /* FavoritesViewController.swift */; };
 		D7654CE129E6F0200098A5D5 /* CartViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7654CDF29E6F0200098A5D5 /* CartViewCell.swift */; };
 		D7654CE229E6F0200098A5D5 /* CartViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7654CE029E6F0200098A5D5 /* CartViewCell.xib */; };
+		D7737BBF29F1B57F0097EAF3 /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7737BBE29F1B57F0097EAF3 /* Payment.swift */; };
 		D78AD32429CFA43500811151 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78AD32229CFA43500811151 /* ProductCell.swift */; };
 		D78AD32529CFA43500811151 /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D78AD32329CFA43500811151 /* ProductCell.xib */; };
 		D78AD32729CFB3BA00811151 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78AD32629CFB3BA00811151 /* User.swift */; };
@@ -26,6 +27,7 @@
 		D795E41A29C3841600F3B234 /* eCommerceAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D795E41929C3841600F3B234 /* eCommerceAppUITests.swift */; };
 		D795E41C29C3841600F3B234 /* eCommerceAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D795E41B29C3841600F3B234 /* eCommerceAppUITestsLaunchTests.swift */; };
 		D795E42929C3850900F3B234 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D795E42829C3850900F3B234 /* GoogleService-Info.plist */; };
+		D7B0226829F1D9C200897566 /* OrderConfirmedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B0226729F1D9C200897566 /* OrderConfirmedVC.swift */; };
 		D7D9A92D29C46C28009848F9 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D9A92C29C46C28009848F9 /* Product.swift */; };
 		D7D9A93429C473B1009848F9 /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = D7D9A93329C473B1009848F9 /* Algorithms */; };
 		D7D9A93629C476FE009848F9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D9A93529C476FE009848F9 /* HomeViewController.swift */; };
@@ -72,6 +74,7 @@
 		D736CC0F29D2382A0050A507 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		D7654CDF29E6F0200098A5D5 /* CartViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewCell.swift; sourceTree = "<group>"; };
 		D7654CE029E6F0200098A5D5 /* CartViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartViewCell.xib; sourceTree = "<group>"; };
+		D7737BBE29F1B57F0097EAF3 /* Payment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
 		D78AD32229CFA43500811151 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		D78AD32329CFA43500811151 /* ProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
 		D78AD32629CFB3BA00811151 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -88,6 +91,7 @@
 		D795E41929C3841600F3B234 /* eCommerceAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eCommerceAppUITests.swift; sourceTree = "<group>"; };
 		D795E41B29C3841600F3B234 /* eCommerceAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eCommerceAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D795E42829C3850900F3B234 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D7B0226729F1D9C200897566 /* OrderConfirmedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmedVC.swift; sourceTree = "<group>"; };
 		D7D9A92C29C46C28009848F9 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		D7D9A93529C476FE009848F9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		D7DBFA0C29C38BD700D254BA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -225,6 +229,7 @@
 				D7DC34EE29C3AF470085E4CD /* Constants.swift */,
 				D7DBFA1429C3A21700D254BA /* Extensions.swift */,
 				D70F5F7E29C5D487001760D5 /* Firebase+Utils.swift */,
+				D7737BBE29F1B57F0097EAF3 /* Payment.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -250,6 +255,7 @@
 				D7DBFA1029C390FA00D254BA /* ProfileViewController.swift */,
 				D736CC0F29D2382A0050A507 /* FavoritesViewController.swift */,
 				D7F1564229CE34CD00890A44 /* DetailViewController.swift */,
+				D7B0226729F1D9C200897566 /* OrderConfirmedVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -536,6 +542,8 @@
 				D78AD32729CFB3BA00811151 /* User.swift in Sources */,
 				D7DBFA1329C3911400D254BA /* CartViewController.swift in Sources */,
 				D795E3FB29C3841500F3B234 /* SceneDelegate.swift in Sources */,
+				D7B0226829F1D9C200897566 /* OrderConfirmedVC.swift in Sources */,
+				D7737BBF29F1B57F0097EAF3 /* Payment.swift in Sources */,
 				D7D9A93629C476FE009848F9 /* HomeViewController.swift in Sources */,
 				D736CC0E29D21D830050A507 /* UserService.swift in Sources */,
 				D7DBFA1529C3A21700D254BA /* Extensions.swift in Sources */,

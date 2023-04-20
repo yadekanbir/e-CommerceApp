@@ -35,7 +35,11 @@ class ProductCell: UITableViewCell {
             let placeholder = UIImage(named: "product")
             productImage.kf.setImage(with: url, placeholder: placeholder)
         }
-        productPriceLabel.text = product.price
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        if let price = formatter.string(from: product.price as NSNumber) {
+            productPriceLabel.text = price
+        }
         
         if UserService.favorites.contains(product) {
             favButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)

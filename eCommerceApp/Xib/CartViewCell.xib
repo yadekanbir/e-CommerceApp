@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -52,6 +53,16 @@
                                 <rect key="frame" x="34" y="31" width="128" height="129"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a6B-d2-x98">
+                                <rect key="frame" x="324" y="108" width="40" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="systemGrayColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="trash" catalog="system"/>
+                                <connections>
+                                    <action selector="removeItemFromCart:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Vhy-ol-Qzr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
@@ -64,9 +75,16 @@
                 <outlet property="productImage" destination="gqY-Tu-ggX" id="ktZ-Vh-pA2"/>
                 <outlet property="productName" destination="FuH-Ei-2d3" id="2xY-OA-YIY"/>
                 <outlet property="quantityLabel" destination="d60-eM-oOR" id="0XW-up-tKl"/>
+                <outlet property="removeItem" destination="a6B-d2-x98" id="mpP-Iy-GJY"/>
                 <outlet property="stepper" destination="EMS-TV-pTV" id="Qvr-Qr-Xmu"/>
             </connections>
             <point key="canvasLocation" x="166.41221374045801" y="-26.056338028169016"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="trash" catalog="system" width="117" height="128"/>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

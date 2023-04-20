@@ -14,28 +14,15 @@ extension String {
     }
 }
 
-extension UIViewController {
-    func showToast(message: String) {
-        guard let window = UIApplication.shared.keyWindow else { return }
-        let toastLabel = UILabel()
-        toastLabel.text = message
-        toastLabel.textAlignment = .center
-        toastLabel.font = UIFont.systemFont(ofSize: 17)
+extension Int {
+    func penniesToFormattedCurrency() -> String {
+        let dollars = Double(self)/100
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
         
-        let textSize = toastLabel.intrinsicContentSize
-        let labelWidth = min(textSize.width, window.frame.width - 40)
-        
-        toastLabel.frame = CGRect(x: 20, y: window.frame.height - 90, width: labelWidth, height: textSize.height)
-        toastLabel.center.x = window.center.x
-        toastLabel.layer.cornerRadius = 10
-        toastLabel.layer.masksToBounds = true
-        
-        window.addSubview(toastLabel)
-        
-        UIView.animate(withDuration: 3.0, animations: {
-            toastLabel.alpha = 0
-        }) {
-            (_) in toastLabel.removeFromSuperview()
+        if let dollarString = formatter.string(from: dollars as NSNumber) {
+            return dollarString
         }
+        return "$100.00"
     }
 }
