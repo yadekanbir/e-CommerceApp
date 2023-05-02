@@ -71,7 +71,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     func makeAlert(titleInput:String, messageInput:String) {
         let alert = UIAlertController(title: titleInput, message: messageInput, preferredStyle: UIAlertController.Style.alert)
         let action1 = UIAlertAction(title: "Keep Shopping!", style: UIAlertAction.Style.default, handler: nil)
-        let action2 = UIAlertAction(title: "Buy Now!", style: UIAlertAction.Style.default) { (action:UIAlertAction) in
+        let action2 = UIAlertAction(title: "Buy Now!", style: UIAlertAction.Style.default) { [self] (action:UIAlertAction) in
             self.performSegue(withIdentifier: "toLastScreen", sender: nil)
         }
         alert.addAction(action1)
